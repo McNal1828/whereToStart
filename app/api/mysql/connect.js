@@ -14,5 +14,6 @@ export default async function connection() {
 	});
 	connection.connect();
 	cache.connect();
+	console.log('Redis connected.');
 	return [connection, cache];
 }
