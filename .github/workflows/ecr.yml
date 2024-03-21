@@ -53,5 +53,4 @@ jobs:
         docker tag $IMAGE_REPO:$IMAGE_TAG $ECR_REGISTRY/$IMAGE_REPO:$LATEST_TAG
         docker push $ECR_REGISTRY/$IMAGE_REPO:$LATEST_TAG 
 
-
         
