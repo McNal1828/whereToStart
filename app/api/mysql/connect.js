@@ -10,17 +10,13 @@ export default async function connection() {
 	});
 	console.log('MySQL connected.');
 
-	try {
 	const cache = redis.createClient({
 		host : "aurora-redis.z6wkin.ng.0001.apne1.cache.amazonaws.com",
 		port : "6379",
 	});
 	cache.on('error', err => console.log('Redis Client Error', err));
 	console.log('Redis connected.');
-	} catch (error) {
-		console.error('Error connecting to Redis:', error);
-	}
 	connection.connect();
-	await cache.connect();
+
 	return [connection, cache];
 }
