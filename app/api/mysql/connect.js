@@ -9,10 +9,14 @@ export default async function connection() {
 		password: process.env.MYSQL_PW,
 		database: process.env.MYSQL_DB,
 	});
+	console.log('MySQL connected.');
+
 	const cache = redis.createClient({
-		host : "aurora-redis-ro.z6wkin.ng.0001.apne1.cache.amazonaws.com", 
-		port : 6379
+		host : "aurora-redis.z6wkin.ng.0001.apne1.cache.amazonaws.com:6379",
+		port : 6379,
 	});
+
+	console.log('Redis connected.');
 
 	cache.get = promisify(cache.get);
     cache.set = promisify(cache.set);
