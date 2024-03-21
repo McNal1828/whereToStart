@@ -1,5 +1,6 @@
 import mysql from 'mysql2/promise';
 import redis from 'redis';
+import { promisify } from 'util';
 
 export default async function connection() {
 	const connection = await mysql.createConnection({
@@ -12,8 +13,9 @@ export default async function connection() {
 		host : "aurora-redis-ro.z6wkin.ng.0001.apne1.cache.amazonaws.com", 
 		port : 6379
 	});
-	connection.connect();
-	cache.connect();
-	console.log('Redis connected.');
+
+	cache.get = promisify(cache.get);
+    cache.set = promisify(cache.set);
+
 	return [connection, cache];
 }
