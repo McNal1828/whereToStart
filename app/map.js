@@ -56,7 +56,7 @@ export default function Map() {
 				source: 'heang_boundary',
 				paint: {
 					'fill-color': '#95BEFA',
-					'fill-opacity': 0.3,
+					'fill-opacity': 0.2,
 					'fill-outline-color': '#000000',
 				},
 				filter: ['==', '$type', 'Polygon'],
@@ -201,11 +201,13 @@ export default function Map() {
 					</div>
 				</div>
 				<div class='items'>
-					<div class='item'><label>분기 총 매출</label><p>${cursang.code == 0 ? curheang.sum_cm_sa : cursang.sum_cm_sa}</p></div>
-					<div class='item'><label>총 점포 수</label><p>${cursang.code == 0 ? curheang.sum_total_ns : cursang.sum_total_ns}</p></div>
-					<div class='item'><label>분기 평균 매출</label><p>${cursang.code == 0 ? curheang.ratio_cm_sa_ns : cursang.ratio_cm_sa_ns}</p></div>
-					<div class='item'><label>최다 점포 업종</label><p>${cursang.code == 0 ? curheang.max_total_ns_st_nm : cursang.max_total_ns_st_nm}</p></div>
-					<div class='item'><label>최고 매출 업종</label><p>${cursang.code == 0 ? curheang.max_cm_sa_st_nm : cursang.max_cm_sa_st_nm}</p></div>
+					<div class='item'><div>${cursang.code == 0 ? curheang.sum_cm_sa : cursang.sum_cm_sa}원</div><label>분기 총 매출</label></div>
+					<div class='item'><div>${cursang.code == 0 ? curheang.sum_total_ns : cursang.sum_total_ns}개</div><label>총 점포 수</label></div>
+					<div class='item'><div>${
+						cursang.code == 0 ? Number(curheang.ratio_cm_sa_ns).toFixed(0) : Number(cursang.ratio_cm_sa_ns).toFixed(0)
+					}원</div><label>분기 평균 매출</label></div>
+					<div class='item'><div>${cursang.code == 0 ? curheang.max_total_ns_st_nm : cursang.max_total_ns_st_nm}</div><label>최다 점포 업종</label></div>
+					<div class='item'><div>${cursang.code == 0 ? curheang.max_cm_sa_st_nm : cursang.max_cm_sa_st_nm}</div><label>최고 매출 업종</label></div>
 				</div>
 			</div>
 		`;
