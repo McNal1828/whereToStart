@@ -7,5 +7,6 @@ export default async function connection() {
 		password: process.env.MYSQL_PW,
 		database: process.env.MYSQL_DB,
 	});
+	connection.connect();
 	return connection;
 }

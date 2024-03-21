@@ -15,6 +15,7 @@ export async function GET(req, { params }) {
 	const db = client.db('sang');
 	const checkExisting = await db.collection('heangboundary').findOne({ 'properties.ab_cd': code });
 	// console.log(checkExisting.geometry.coordinates);
+	await client.close();
 	if (checkExisting) {
 		return NextResponse.json({ data: checkExisting.geometry.coordinates }, { status: 200 });
 	} else {
