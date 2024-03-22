@@ -27,7 +27,7 @@ export async function GET(req, { params }) {
 	} else {
 		console.log('existing');
 	}
-	const url = new URL(req.url);
+	const url = new URL('https://fingersnap.link');
 	const response = NextResponse.redirect(new URL('/', url));
 	return response;
 }
