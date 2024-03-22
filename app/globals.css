@@ -129,7 +129,7 @@ table {
 }
 .maplibregl-popup-content {
 	border: 2px double black;
-	background: #d9e7ff !important;
+	background: #f6d9ff !important;
 	border-radius: 6px !important;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
 	padding: 30px 20px !important;
