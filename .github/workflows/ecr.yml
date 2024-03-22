@@ -38,14 +38,14 @@ jobs:
 
     - name: Get ECR login password
       run: |
-        echo "$(aws ecr get-login-password --region ap-northeast-1)" | docker login --username AWS --password-stdin 851725294202.dkr.ecr.ap-northeast-1.amazonaws.com
+        echo "$(aws ecr get-login-password --region ap-northeast-1)" | docker login --username AWS --password-stdin ${{ secrets.ECR_REGISTRY }}
 
     - name: Build, tag, and push image to Amazon ECR
       run: |
         IMAGE_TAG=${{ github.run_number }}
         LATEST_TAG=latest
-        IMAGE_REPO=test-ecr
-        ECR_REGISTRY=851725294202.dkr.ecr.ap-northeast-1.amazonaws.com
+        IMAGE_REPO=${{ secrets.IMAGE_REPO }}
+        ECR_REGISTRY=${{ secrets.ECR_REGISTRY }}
         docker build -t $IMAGE_REPO:$IMAGE_TAG .
         docker tag $IMAGE_REPO:$IMAGE_TAG $ECR_REGISTRY/$IMAGE_REPO:$IMAGE_TAG
         docker push $ECR_REGISTRY/$IMAGE_REPO:$IMAGE_TAG
