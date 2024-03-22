@@ -11,5 +11,6 @@ const nextConfig = {
 			},
 		],
 	},
+	env: { NEXTAUTH_URL: 'https://fingersnap.link' },
 };
 export default nextConfig;
