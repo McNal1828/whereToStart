@@ -7,7 +7,7 @@ export default function LoginBtn() {
 		<button
 			className={styles.btn}
 			onClick={(e) => {
-				signIn('discord', { callbackUrl: 'http://localhost:3000/api/fav' });
+				signIn('discord', { callbackUrl: 'https://fingersnap.link/api/fav' });
 			}}
 		>
 			로그인
