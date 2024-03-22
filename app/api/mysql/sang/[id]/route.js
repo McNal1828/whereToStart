@@ -6,4 +6,3 @@ export async function GET(req, { params }) {
 	const [rows, fields] = await (await conn).execute(`SELECT * from ab_summary_view WHERE cd_cd = ${params.id}`);
 	return NextResponse.json({ rows }, { status: 200 });
 }
-}
